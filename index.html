@@ -11,7 +11,19 @@
     <body>
         <h1 class="jumbotron">Timeline</h1>
 		<div ng-controller="timelineCtrl" align="center">
-			{{result}}			
+			<table class="table" data-ng-repeat="item in listaPostagens">
+				<tr>
+					<th rowspan="3"> <img src="{{item.user.picture}}"> </th>
+					<td width=100px>{{item.user.username}}</td>
+					<td>{{item.date + ' | ' + item.user.location}}</td>
+				</tr>
+				<tr>
+    				<td colspan="2">{{item.content}}</td>
+  				</tr>
+				<tr>
+    				<td>Likes: {{item.likes}}</td>
+  				</tr>
+			</table>			
 		</div>
 	</body>
 

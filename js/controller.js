@@ -1,8 +1,21 @@
 var app = angular.module("timeline", []);
-app.controller("timelineCtrl", function($scope){
+
+app.service("timelineServ", function($http, $q){
+	var depois = $q.defer();
+	$http.get('js/timeline.json').then(function(dados){
+		depois.resolve(dados);
+	});
 	
-	var a = 2;
-	var b = 3;
-	$scope.result = a + b;
+	this.getPostagem = function(){
+		return depois.promise;
+	}
+})
+
+app.controller("timelineCtrl", function($scope, timelineServ){
+	
+	var postagens = timelineServ.getPostagem();
+	postagens.then(function(dados){
+		$scope.listaPostagens = dados.data;
+	});
 	
 });
