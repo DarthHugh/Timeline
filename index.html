@@ -6,6 +6,11 @@
         <title>Timeline</title>
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
 		<script src="js/controller.js"></script>
+		
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+		<link rel="stylesheet" href="css/ajustes.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     </head>
 	
     <body>
@@ -13,9 +18,9 @@
 		<div ng-controller="timelineCtrl" align="center">
 			<table class="table" data-ng-repeat="item in listaPostagens">
 				<tr>
-					<th rowspan="3"> <img src="{{item.user.picture}}"> </th>
-					<td width=100px>{{item.user.username}}</td>
-					<td>{{item.date + ' | ' + item.user.location}}</td>
+					<th rowspan="3"> <img src="{{item.user.picture}}" class="img"> </th>
+					<td width=100px><b>{{item.user.username}}</b></td>
+					<td class="locacao">{{item.date + ' | ' + item.user.location}}</td>
 				</tr>
 				<tr>
     				<td colspan="2">{{item.content}}</td>
